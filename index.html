@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apple shop checkout page with responsive design, summary section, and contact form.">
+    <meta name="keywords" content="Apple, shop, checkout, responsive, HTML, CSS">
+    <meta name="author" content="Your Name">
+    <title>Apple Shop Checkout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .nav {
+            background: rgba(128, 128, 128, 0.8);
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .nav h1 {
+            font-size: 24px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav ul li {
+            cursor: pointer;
+        }
+
+        .nav ul li:hover {
+            text-decoration: underline;
+        }
+
+        .summary, .contact-form {
+            margin: 20px 0;
+        }
+
+        .summary h2, .contact-form h2 {
+            font-size: 22px;
+            color: #1e1e1e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .contact-form form {
+            display: grid;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form select, .contact-form button {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background: #1e1e1e;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <h1>Apple Shop</h1>
+            <ul>
+                <li onclick="alert('Home clicked')">Home</li>
+                <li onclick="alert('Products clicked')">Products</li>
+                <li onclick="alert('Contact clicked')">Contact</li>
+            </ul>
+        </nav>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Welcome to the Apple Shop! Here you can find the latest and greatest Apple products. Explore our selection of cutting-edge technology designed to fit seamlessly into your life. Below is a quick overview of some of our popular products:</p>
+            <div class="product-list">
+                <div class="product">
+                    <img src="iphone15.jpeg" alt="iPhone 15">
+                    <h3>iPhone 15</h3>
+                    <p>The iPhone 15 delivers advanced camera capabilities and unparalleled performance. Available now for $999.</p>
+                </div>
+                <div class="product">
+                    <img src="MacBook Pro.jpeg" alt="MacBook Pro">
+                    <h3>MacBook Pro</h3>
+                    <p>Experience the power of the new M-series chip with the MacBook Pro, starting at $2499.</p>
+                </div>
+                <div class="product">
+                    <img src="AirPods Pro.jpeg" alt="AirPods Pro">
+                    <h3>AirPods Pro</h3>
+                    <p>Immerse yourself in rich, high-fidelity sound with the AirPods Pro, now available for $249.</p>
+                </div>
+                <div class="product">
+                    <img src="Apple Watch.jpeg" alt="Apple Watch">
+                    <h3>Apple Watch</h3>
+                    <p>Track your health and fitness with the sleek and powerful Apple Watch, starting at $399.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Contact Information</h2>
+            <form action="/submit" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Apple Shop. All rights reserved.
+    </footer>
+</body>
+</html>
